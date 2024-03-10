@@ -7,27 +7,24 @@ window.addEventListener('DOMContentLoaded', function () {
     $('#no_scroll').hide();
   }, 2500);
 
-  const containerHeight =
-    this.document.querySelector('#container')?.scrollHeight;
-  const untilSec01 = this.document.querySelector('#section01')?.scrollHeight;
-  const untilSec02 =
-    this.document.querySelector('#section02')?.scrollHeight + untilSec01;
-  const untilSec03 =
-    this.document.querySelector('#section03')?.scrollHeight + untilSec02;
-  const untilSec04 =
-    this.document.querySelector('#section04')?.scrollHeight + untilSec03;
-  const untilSec05 =
-    this.document.querySelector('#section05')?.scrollHeight + untilSec04;
-  const untilSec06 =
-    this.document.querySelector('#section06')?.scrollHeight + untilSec05;
-  const untilSec07 =
-    this.document.querySelector('#section07')?.scrollHeight + untilSec06;
-  const untilSec08 =
-    this.document.querySelector('#section08')?.scrollHeight + untilSec07;
-  const untilSec09 =
-    this.document.querySelector('#section09')?.scrollHeight + untilSec08;
-
-  console.log(containerHeight, untilSec09);
+  const se04Left = this.document
+    .querySelector('#section04 .left')
+    ?.getBoundingClientRect();
+  const se05Cnt03 = this.document
+    .querySelector('.se05_cnt03')
+    ?.getBoundingClientRect();
+  const se06Top = this.document
+    .querySelector('#section06 .top')
+    ?.getBoundingClientRect();
+  const se07 = this.document
+    .querySelector('#section07')
+    ?.getBoundingClientRect();
+  const se08Cnt03 = this.document
+    .querySelector('#section08 .fix-this-08 .se08_cnt03')
+    ?.getBoundingClientRect();
+  const se09BlackBg = this.document
+    .querySelector('#section09 .black_bg')
+    ?.getBoundingClientRect();
 
   /* scroll event section */
   container.addListener((e) => {
@@ -35,42 +32,51 @@ window.addEventListener('DOMContentLoaded', function () {
     $('.posNum').html(scrollTop);
 
     // if (scrollTop >= 10900 && scrollTop <= 12667) {
-    if (untilSec03 <= scrollTop && scrollTop <= untilSec04) {
+    if (
+      se04Left.top - 500 <= scrollTop &&
+      scrollTop <= se04Left.bottom + 1000
+    ) {
       $('#section04 .left').addClass('on');
     } else {
       $('#section04 .left').removeClass('on');
     }
 
     // if (scrollTop >= 15332 && scrollTop <= 21962) {
-    if (untilSec04 <= scrollTop && scrollTop <= untilSec05) {
+    if (
+      se05Cnt03.top - 500 <= scrollTop &&
+      scrollTop <= se05Cnt03.bottom + 1000
+    ) {
       $('#section05 .fix-this-05 .se05_cnt02 .left').addClass('on');
     } else {
       $('#section05 .fix-this-05 .se05_cnt02 .left').removeClass('on');
     }
 
     // if (scrollTop >= 28850 && scrollTop <= 30585) {
-    if (untilSec05 <= scrollTop && scrollTop <= untilSec06) {
+    if (se06Top.top - 500 <= scrollTop && scrollTop <= se06Top.bottom + 1000) {
       $('#section06 .top').addClass('on');
     } else {
       $('#section06 .top').removeClass('on');
     }
 
     // if (scrollTop >= 52500 && scrollTop <= 57500) {
-    if (untilSec07 <= scrollTop && scrollTop <= untilSec08) {
+    if (
+      se08Cnt03.top + se08Cnt03.left - 500 <= scrollTop &&
+      scrollTop <= se08Cnt03.bottom + se08Cnt03.right + 1000
+    ) {
       $('#section08 .fix-this-08 .se08_cnt03').addClass('on');
     } else {
       $('#section08 .fix-this-08 .se08_cnt03').removeClass('on');
     }
 
     // if (scrollTop >= 59000 && scrollTop <= 63432) {
-    if (untilSec08 <= scrollTop && scrollTop <= untilSec09) {
+    if (se09BlackBg.bottom <= scrollTop) {
       $('#section09 .inner .contact_us .hello').addClass('on');
     } else {
       $('#section09 .inner .contact_us .hello').removeClass('on');
     }
 
     // if (scrollTop >= 60300 && scrollTop <= 63432) {
-    if (untilSec08 <= scrollTop && scrollTop <= untilSec09) {
+    if (se09BlackBg.bottom + se09BlackBg.width / 2 + 1000 <= scrollTop) {
       $('#section09 .inner .contact_us .contact').addClass('on');
     } else {
       $('#section09 .inner .contact_us .contact').removeClass('on');
@@ -130,7 +136,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     if (idx === 0) value = 63432; //첫번쨰 메뉴 클릭했을 떄
     if (idx === 1) value = 6207; //두번쨰 메뉴 클릭했을 떄
-    if (idx === 2) value = 35892; //세번쨰 메뉴 클릭했을 떄
+    if (idx === 2) value = se07.top; //세번쨰 메뉴 클릭했을 떄
 
     container.scrollTo(0, value, 600, {
       callback: () => console.log('done!'),
@@ -145,7 +151,7 @@ window.addEventListener('DOMContentLoaded', function () {
     let idx = $('#mega .mega_box2 > div').index(this);
     console.log(idx);
 
-    if (idx === 0) value2 = 35892; //첫번쨰 메뉴 클릭했을 떄
+    if (idx === 0) value2 = se07.top; //첫번쨰 메뉴 클릭했을 떄
     if (idx === 1) value2 = 63432; //두번쨰 메뉴 클릭했을 떄
     if (idx === 2) value2 = 6207; //세번쨰 메뉴 클릭했을 떄
 

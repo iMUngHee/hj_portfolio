@@ -1120,7 +1120,7 @@
 }
 
 #section08 .fix-this-08 .se08_cnt02 {
-  width: 100vw;
+  /*width: 100vw;*/
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -1185,8 +1185,8 @@
 }
 
 #section09 {
-  /*padding-top: 980px;*/
-  /*padding-left: 200px;*/
+  /* padding-top: 980px; */
+  /* padding-left: 200px; */
   background: white url('../images/section01/grid.png') repeat-y;
   height: 700vh;
 }
@@ -1214,7 +1214,7 @@
 }
 
 #section09 .black_bg {
-  width: 103vw;
+  width: 100vw;
   height: 100vh;
   position: relative;
   display: flex;
@@ -1242,8 +1242,9 @@
 }
 
 #section09 .inner .contact_us {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
